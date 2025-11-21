@@ -49,48 +49,42 @@ appendToFile(", " + args[0].substring(1));
 } 
 catch (Exception e) {}
 }else if (args[0].contains("?")) {
-    String line = readFromFile();
-String employees[] = line.split(",");
+    String line = "";
+    try {
+        line = readFromFile();
+    } catch (Exception e) {
+        System.out.println("Error reading from file: " + e.getMessage());
+        return;
+    }
+    String employees[] = line.split(",");
 
-String searchName = args[0].substring(1);
+    String searchName = args[0].substring(1);
 
-if (Arrays.asList(employees).contains(searchName)) {
-    System.out.println("Employee found!");
-} else {
-    System.out.println("Employee not found!");
-}
+    if (Arrays.asList(employees).contains(searchName)) {
+        System.out.println("Employee found!");
+    } else {
+        System.out.println("Employee not found!");
+    }
 
-try {
-String l = readFromFile();
-String e[] = l.split(",");
-String searchName = args[0].substring(1);
-
-boolean found = false;
-for (int i = 0; i < e.length && !found; i++) {
-if (e[i].equals(searchName)) {
-System.out.println("Employee found!");
-found = true;
-}
-}
-} 
-catch (Exception e) {}
-}else if (args[0].contains("c")) {
-try {
-String l = readFromFile();
-char[] characters = l.toCharArray();
-boolean inWord = false;
-int count = 0;
-for (char ch : characters) {
-if (ch == ' ') {
-if (!inWord) {
-count++;
-inWord = true;
-} else {
-inWord = false;
-}
-}
-}
-System.out.println(count + " word(s) found " + characters.length);
+    try {
+        String l = readFromFile();
+        String e[] = l.split(",");
+        appendToFile(", " + args[0].substring(1));
+        boolean found = false;
+        for (int i = 0; i < e.length && !found; i++) {
+            if (e[i].equals(searchName)) {
+                System.out.println("Employee found!");
+                found = true;
+            }
+        }
+    } 
+    catch (Exception e) {}
+}else if (args[0].contains("c")) 
+if (args[0].contains("c")) {
+try { 
+String line = readFromFile();
+String[] words = line.trim().split("\\s+");
+System.out.println("Word count: " + words.length);
 } catch (Exception e) {}
 }
 else if (args[0].contains("u")) {
