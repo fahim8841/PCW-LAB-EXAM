@@ -4,8 +4,7 @@ import java.util.*;
 public class EmployeeManager {
 // Method to read employee data
 static String readFromFile() throws Exception {
-try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(Constants.FILE_NAME)
-))) {
+try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("employees.txt")))) {
 return reader.readLine();
 }
 }
@@ -20,9 +19,6 @@ static void appendToFile(String data) throws Exception {
 try (BufferedWriter writer = new BufferedWriter(new FileWriter("employees.txt", true))) {
  writer.write(data);
 }
-}
-public class Constants {
-    public static final String FILE_NAME = "employees.txt";
 }
     public static void main(String[] args) {
 if (args.length == 0) {
