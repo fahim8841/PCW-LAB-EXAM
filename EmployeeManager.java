@@ -45,8 +45,7 @@ System.out.println(employees[randomindex]);
 catch (Exception e) {}
 }else if (args[0].contains("+")) {
 try {
-String n = args[0].substring(1);
-appendToFile(", " + n);
+appendToFile(", " + args[0].substring(1));
 } 
 catch (Exception e) {}
 }else if (args[0].contains("?")) {
