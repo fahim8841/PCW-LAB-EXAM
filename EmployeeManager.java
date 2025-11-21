@@ -20,7 +20,6 @@ try (BufferedWriter writer = new BufferedWriter(new FileWriter("employees.txt", 
  writer.write(data);
 }
 }
-
     public static void main(String[] args) {
 if (args.length == 0) {
 System.out.println("Error: No arguments provided.");
