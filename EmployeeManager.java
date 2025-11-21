@@ -49,6 +49,17 @@ appendToFile(", " + args[0].substring(1));
 } 
 catch (Exception e) {}
 }else if (args[0].contains("?")) {
+    String line = readFromFile();
+String employees[] = line.split(",");
+
+String searchName = args[0].substring(1);
+
+if (Arrays.asList(employees).contains(searchName)) {
+    System.out.println("Employee found!");
+} else {
+    System.out.println("Employee not found!");
+}
+
 try {
 String l = readFromFile();
 String e[] = l.split(",");
